@@ -12,135 +12,162 @@ $delete-bg: #647198;
 $toggle-bg: #1b2435;
 $toggle-handle-color: #e74c3c;
 
-// Global body styles for different themes
-body.theme-1 {
-    background-color: $theme-1-bg;
-}
-body.theme-2 {
-    background-color: $theme-2-bg;
-}
-body.theme-3 {
-    background-color: $theme-3-bg;
-}
+body {
+    font-family: 'League Spartan', sans-serif;
 
-// Styling for the calculator component
-.calculator {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: $dark-bg;
-    border-radius: 10px;
-    text-align: center;
-
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .logo {
-            font-size: 24px;
-            color: white;
-        }
-
-        .theme-toggle {
+    .calculator {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    
+        header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            color: white;
-
-            span {
-                margin-right: 10px;
-                font-size: 12px;
+    
+            .logo {
+                font-size: 24px;
             }
-
-            .toggle-container {
+    
+            .theme-toggle {
                 display: flex;
                 align-items: center;
-                flex-direction: column;
-                justify-content: center;
-
+                color: white;
+    
                 span {
-                    margin-right: 5px;
+                    margin-right: 10px;
                     font-size: 12px;
                 }
-
-                .toggle {
-                    background-color: $toggle-bg;
-                    width: 50px;
-                    height: 20px;
-                    border-radius: 10px;
-                    position: relative;
-                    cursor: pointer;
-
-                    .toggle-handle {
-                        background-color: $toggle-handle-color;
-                        width: 14px;
-                        height: 14px;
-                        border-radius: 50%;
-                        position: absolute;
-                        top: 3px;
-                        left: 3px;
-                        transition: all 0.3s ease;
-
-                        &.position-0 {
-                            transform: translateX(0);
-                        }
-
-                        &.position-1 {
-                            transform: translateX(15px);
-                        }
-
-                        &.position-2 {
-                            transform: translateX(30px);
+    
+                .toggle-container {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    justify-content: center;
+    
+                    span {
+                        margin-right: 5px;
+                        font-size: 12px;
+                    }
+    
+                    .toggle {
+                        background-color: $toggle-bg;
+                        width: 50px;
+                        height: 20px;
+                        border-radius: 10px;
+                        position: relative;
+                        cursor: pointer;
+    
+                        .toggle-handle {
+                            background-color: $toggle-handle-color;
+                            width: 14px;
+                            height: 14px;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 3px;
+                            left: 3px;
+                            transition: all 0.3s ease;
+    
+                            &.position-0 {
+                                transform: translateX(0);
+                            }
+    
+                            &.position-1 {
+                                transform: translateX(15px);
+                            }
+    
+                            &.position-2 {
+                                transform: translateX(30px);
+                            }
                         }
                     }
                 }
             }
         }
+    
+        .calculator-display {
+            background-color: #181f33;
+            color: white;
+            font-size: 36px;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 8px;
+            letter-spacing: 0.4px;
+            text-align: right;
+        }
+    
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+    
+            button {
+                background-color: $light-bg;
+                border: none;
+                font-size: 20px;
+                padding: 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+    
+                &:active {
+                    background-color: darken($light-bg, 10%);
+                }
+            }
+    
+            .reset-btn {
+                grid-column: span 2;
+                background-color: $reset-bg;
+            }
+    
+            .delete-btn {
+                background-color: $delete-bg;
+            }
+    
+            .equals-btn {
+                grid-column: span 2;
+                background-color: $equals-bg;
+                color: white;
+            }
+        }
     }
 
-    .calculator-display {
-        background-color: #181f33;
-        color: white;
-        font-size: 36px;
-        margin: 20px 0;
-        padding: 10px;
-        border-radius: 8px;
-        letter-spacing: 0.4px;
-        text-align: right;
-    }
+    &.theme-1 {
+        background-color: hsl(222, 26%, 31%);
 
-    .calculator-buttons {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 10px;
+        header {
+            .logo {
+                color: white;
+            }
 
-        button {
-            background-color: $light-bg;
-            border: none;
-            font-size: 20px;
-            padding: 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s;
+            .theme-toggle {
 
-            &:active {
-                background-color: darken($light-bg, 10%);
+                .toggle-container {
+                    .toggle {
+                        background-color: hsl(223, 31%, 20%);
+                    }
+                }
             }
         }
 
-        .reset-btn {
-            grid-column: span 2;
-            background-color: $reset-bg;
-        }
+        .calculator-buttons {
+            background-color: hsl(223, 31%, 20%);
+            padding: 15px;
+            border-radius: 6px;
 
-        .delete-btn {
-            background-color: $delete-bg;
+            button {
+                
+            }
         }
+    }
 
-        .equals-btn {
-            grid-column: span 2;
-            background-color: $equals-bg;
-            color: white;
-        }
+    &.theme-2 {
+        background-color: hsl(0, 0%, 93%);
+    }
+
+    &.theme-3 {
+        background-color: hsl(268, 71%, 12%);
     }
 }
